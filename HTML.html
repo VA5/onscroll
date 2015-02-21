@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>onScroll</title>
+	<link rel="stylesheet" href="CSS.css">
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<h1>On Scroll</h1>
+	<div id="circle"></div>
+	<div id="footer">by Vahram Andreasyan</div>
+
+	<script>
+
+
+		var r = Math.floor((Math.random() * 255) + 1);
+		var g = Math.floor((Math.random() * 255) + 1);
+		var b = Math.floor((Math.random() * 255) + 1);
+
+		var h = 50;
+		var w = 50;
+
+		$(document).ready(function(){
+			$(document).scroll(function(){
+				$("#circle").css("background-color", "rgb("+r+","+g+","+b+")");
+				$("#circle").css("height", h + "px");
+				$("#circle").css("width", w + "px");
+				r = Math.floor((Math.random() * 255) + 1);
+				g = Math.floor((Math.random() * 255) + 1);
+				b = Math.floor((Math.random() * 255) + 1);
+				
+				if(h < 650){
+					h = h + 2;
+					w = w + 2;
+				}
+				else{
+					h = 50;
+					w = 50;
+				}
+			});
+			$(document).click(function() {
+  				$("#circle").toggle("explode");
+			});
+		});
+
+	</script>
+</body>
+</html>
